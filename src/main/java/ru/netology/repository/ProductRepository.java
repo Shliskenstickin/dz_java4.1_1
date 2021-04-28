@@ -30,7 +30,9 @@ public class ProductRepository {
                 }
             }
             items = tmp;
-        } else throw new NotFoundException("Element with id: " + id + " not found");
+        } else {
+            throw new NotFoundException("Element with id: " + id + " not found");
+        }
     }
 
     public Product findById(int id) {
