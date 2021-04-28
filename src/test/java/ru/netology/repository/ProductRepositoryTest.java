@@ -6,34 +6,32 @@ import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
 
-import java.security.SecureRandom;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductRepositoryTest {
     private ProductRepository repository = new ProductRepository();
 
-    private Product book1 = new Book(1, "Том Сойер", 10, "Марк Твен");
-    private Product book2 = new Book(2, "Война и мир", 10, "Лев Толстой");
-    private Product book3 = new Book(3, "Мастер и Маргарита", 10, "Михаил Булгаков");
-    private Product smartphone1 = new Smartphone(4, "IPhone 11", 10, "Apple");
-    private Product smartphone2 = new Smartphone(5, "IPhone 6", 10, "Apple");
-    private Product smartphone3 = new Smartphone(6, "IPhone 12", 10, "Apple");
+    private Product bookOne = new Book(1, "Том Сойер", 10, "Марк Твен");
+    private Product bookTwo = new Book(2, "Война и мир", 10, "Лев Толстой");
+    private Product bookThree = new Book(3, "Мастер и Маргарита", 10, "Михаил Булгаков");
+    private Product smartphoneOne = new Smartphone(4, "IPhone 11", 10, "Apple");
+    private Product smartphoneTwo = new Smartphone(5, "IPhone 6", 10, "Apple");
+    private Product smartphoneThree = new Smartphone(6, "IPhone 12", 10, "Apple");
 
     @BeforeEach
     public void setUp() {
-        repository.save(book1);
-        repository.save(book2);
-        repository.save(book3);
-        repository.save(smartphone1);
-        repository.save(smartphone2);
-        repository.save(smartphone3);
+        repository.save(bookOne);
+        repository.save(bookTwo);
+        repository.save(bookThree);
+        repository.save(smartphoneOne);
+        repository.save(smartphoneTwo);
+        repository.save(smartphoneThree);
     }
 
     @Test
     void removeById() {
         repository.removeById(1);
-        Product[] expected = new Product[]{book2, book3, smartphone1, smartphone2, smartphone3};
+        Product[] expected = new Product[]{bookTwo, bookThree, smartphoneOne, smartphoneTwo, smartphoneThree};
         Product[] actual = repository.findAll();
 
         assertArrayEquals(expected, actual);
