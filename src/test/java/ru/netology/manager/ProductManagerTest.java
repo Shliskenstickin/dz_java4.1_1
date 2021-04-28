@@ -61,4 +61,12 @@ class ProductManagerTest {
 
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void notFound() {
+        Product[] expected = new Product[0];
+        Product[] actual = manager.searchBy("IPhone");
+
+        assertArrayEquals(expected, actual);
+    }
 }
